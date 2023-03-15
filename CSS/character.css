@@ -1,0 +1,183 @@
+body {
+  background-color: yellowgreen;
+}
+div {
+  position: absolute;
+  transition: all 200ms;
+}
+/* 헤어 */
+.hair {
+  background-image: url(../Image/hair.svg);
+  width: 229px;
+  height: 170px;
+  left: 15%;
+  top: 3%;
+  z-index: 50;
+  cursor: pointer;
+}
+.hair:active {
+  transform: rotate(10deg);
+}
+/* //헤어 */
+
+/* 얼굴 */
+.face {
+  /* position: relative; */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 365px;
+  height: 340px;
+  border-radius: 70px;
+  background-color: #ffe7a6;
+  box-shadow: inset 0 -55px 4px 0 rgba(167, 143, 83, 0.25);
+  border: 11px solid #000;
+  z-index: 0;
+}
+/* //얼굴 */
+
+/* 눈썹 */
+[class|="eyebrow"] {
+  width: 55px;
+  height: 11px;
+  background-color: #333;
+  box-shadow: 3px 3px 4px 1px rgba(0, 0, 0, 0.268);
+}
+.eyebrow-left {
+  left: 25%;
+  top: 31%;
+}
+.eyebrow-right {
+  left: 60%;
+  top: 31%;
+}
+/* //눈썹 */
+
+/* 눈 */
+[class|="eyes"] {
+  width: 94px;
+  height: 35px;
+  background-color: black;
+  border-radius: 30px 30px 94px 94px;
+  box-shadow: 3px 3px 4px 1px rgba(0, 0, 0, 0.268);
+}
+.eyes-left {
+  left: 15%;
+  top: 38%;
+}
+.eyes-right {
+  left: 60%;
+  top: 38%;
+}
+/* //눈 */
+
+/* 동공 */
+[class|="pupil"] {
+  width: 18px;
+  height: 18px;
+  background-color: white;
+  border-radius: 18px;
+}
+.pupil-left {
+  left: 55%;
+  top: 3%;
+}
+.pupil-right {
+  left: 33%;
+  top: 3%;
+}
+/* //동공 */
+
+/* 코 */
+.nose {
+  width: 33px;
+  height: 26px;
+  background-color: #633705;
+  border: 9px solid black;
+  border-radius: 10px 10px 20px 20px;
+  left: 40%;
+  top: 51.5%;
+  box-shadow: 3px 3px 4px 1px rgba(0, 0, 0, 0.268);
+}
+/* //코 */
+
+/* 입 */
+.mouth {
+  width: 71px;
+  height: 3px;
+  background-color: #f25b5b;
+  border: 9px solid black;
+  border-radius: 13px 13px 0 0;
+  left: 38%;
+  top: 67%;
+  box-shadow: 3px 3px 4px 1px rgba(0, 0, 0, 0.268);
+}
+/* //입 */
+
+/* 혀 */
+.tongue {
+  opacity: 0;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border: 9px solid black;
+  border-radius: 18px 18px 40px 40px;
+  background-color: #f25b5b;
+  left: 40%;
+  top: 70%;
+}
+.line {
+  width: 8px;
+  height: 33px;
+  background-color: black;
+  left: 35%;
+  bottom: 0;
+}
+.tongue:active {
+  opacity: 1;
+}
+/* //혀 */
+
+/* 귀 */
+[class|="ear"] {
+  left: 50%;
+  top: 53%;
+  transform: translate(-50%, -50%);
+  width: 98px;
+  height: 215px;
+  background-color: #ffe7a6;
+  border: 12px solid black;
+  box-shadow: inset 0 -40px 4px 0 rgba(167, 143, 83, 0.25);
+  z-index: -100;
+}
+.ear-left {
+  left: calc(50% - 190px);
+  border-radius: 100px 0 55px 55px;
+}
+.ear-right {
+  left: calc(50% + 200px);
+  border-radius: 0 100px 55px 55px;
+  animation: fluttering-right infinite 2s;
+}
+/* //귀 */
+
+/* 홍조 */
+.blush-container {
+  display: flex;
+  justify-content: space-between;
+  top: 53%;
+  left: 13%;
+  width: 270px;
+  opacity: 0;
+}
+.blush {
+  position: initial;
+  cursor: pointer;
+  width: 70px;
+  height: 40px;
+  background-color: rgba(255, 141, 141, 0.5);
+  border-radius: 50%;
+}
+[class^="blush-"]:hover {
+  opacity: 1;
+}
