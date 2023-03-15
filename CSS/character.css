@@ -1,10 +1,51 @@
+@keyframes fluttering-left {
+  from {
+    transform-origin: top right;
+    transform: rotate(5deg);
+  }
+  50% {
+    transform-origin: top right;
+    transform: rotate(20deg);
+  }
+  to {
+    transform-origin: top right;
+    transform: rotate(5deg);
+  }
+}
+@keyframes fluttering-right {
+  from {
+    transform-origin: top left;
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform-origin: top left;
+    transform: rotate(-23deg);
+  }
+  to {
+    transform-origin: top left;
+    transform: rotate(-5deg);
+  }
+}
+
+:root {
+  --color-main: #ffe7a6;
+  --color-eyebrow: #333;
+  --color-eye: #000;
+  --color-pupil: #eee;
+  --color-nose: #633705;
+  --color-mouth: #f25b5b;
+  --color-blush: rgba(255, 141, 141, 0.5);
+  --color-background: yellowgreen;
+}
+
 body {
-  background-color: yellowgreen;
+  background-color: var(--color-background);
 }
 div {
   position: absolute;
   transition: all 200ms;
 }
+
 /* 헤어 */
 .hair {
   background-image: url(../Image/hair.svg);
@@ -12,7 +53,7 @@ div {
   height: 170px;
   left: 15%;
   top: 3%;
-  z-index: 50;
+  z-index: 100;
   cursor: pointer;
 }
 .hair:active {
@@ -22,14 +63,13 @@ div {
 
 /* 얼굴 */
 .face {
-  /* position: relative; */
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   width: 365px;
   height: 340px;
   border-radius: 70px;
-  background-color: #ffe7a6;
+  background-color: var(--color-main);
   box-shadow: inset 0 -55px 4px 0 rgba(167, 143, 83, 0.25);
   border: 11px solid #000;
   z-index: 0;
@@ -40,8 +80,9 @@ div {
 [class|="eyebrow"] {
   width: 55px;
   height: 11px;
-  background-color: #333;
+  background-color: var(--color-eyebrow);
   box-shadow: 3px 3px 4px 1px rgba(0, 0, 0, 0.268);
+  z-index: 50;
 }
 .eyebrow-left {
   left: 25%;
@@ -57,9 +98,10 @@ div {
 [class|="eyes"] {
   width: 94px;
   height: 35px;
-  background-color: black;
+  background-color: var(--color-eye);
   border-radius: 30px 30px 94px 94px;
   box-shadow: 3px 3px 4px 1px rgba(0, 0, 0, 0.268);
+  z-index: 30;
 }
 .eyes-left {
   left: 15%;
@@ -75,7 +117,7 @@ div {
 [class|="pupil"] {
   width: 18px;
   height: 18px;
-  background-color: white;
+  background-color: var(--color-pupil);
   border-radius: 18px;
 }
 .pupil-left {
@@ -92,12 +134,13 @@ div {
 .nose {
   width: 33px;
   height: 26px;
-  background-color: #633705;
+  background-color: var(--color-nose);
   border: 9px solid black;
   border-radius: 10px 10px 20px 20px;
   left: 40%;
   top: 51.5%;
   box-shadow: 3px 3px 4px 1px rgba(0, 0, 0, 0.268);
+  z-index: 70;
 }
 /* //코 */
 
@@ -105,12 +148,13 @@ div {
 .mouth {
   width: 71px;
   height: 3px;
-  background-color: #f25b5b;
+  background-color: var(--color-mouth);
   border: 9px solid black;
   border-radius: 13px 13px 0 0;
   left: 38%;
   top: 67%;
   box-shadow: 3px 3px 4px 1px rgba(0, 0, 0, 0.268);
+  z-index: 60;
 }
 /* //입 */
 
@@ -122,9 +166,10 @@ div {
   height: 40px;
   border: 9px solid black;
   border-radius: 18px 18px 40px 40px;
-  background-color: #f25b5b;
+  background-color: var(--color-mouth);
   left: 40%;
   top: 70%;
+  z-index: 80;
 }
 .line {
   width: 8px;
@@ -140,24 +185,29 @@ div {
 
 /* 귀 */
 [class|="ear"] {
-  left: 50%;
-  top: 53%;
-  transform: translate(-50%, -50%);
   width: 98px;
   height: 215px;
-  background-color: #ffe7a6;
+  background-color: var(--color-main);
   border: 12px solid black;
   box-shadow: inset 0 -40px 4px 0 rgba(167, 143, 83, 0.25);
   z-index: -100;
 }
 .ear-left {
-  left: calc(50% - 190px);
+  left: calc(50% - 240px);
+  top: calc(50% - 100px);
   border-radius: 100px 0 55px 55px;
+  animation-name: fluttering-left;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
 }
 .ear-right {
-  left: calc(50% + 200px);
+  left: calc(50% + 120px);
+  top: calc(50% - 100px);
+
   border-radius: 0 100px 55px 55px;
-  animation: fluttering-right infinite 2s;
+  animation-name: fluttering-right;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
 }
 /* //귀 */
 
@@ -175,7 +225,7 @@ div {
   cursor: pointer;
   width: 70px;
   height: 40px;
-  background-color: rgba(255, 141, 141, 0.5);
+  background-color: var(--color-blush);
   border-radius: 50%;
 }
 [class^="blush-"]:hover {
